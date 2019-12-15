@@ -10,20 +10,26 @@ import CounterOutput from "../components/CounterOutput";
 function Counter(props) {
   return (
     <div>
-      <CounterOutput value={props.ctr} />
-      <CounterControl label="Increment" Clicked={props.onIncrementCounter} />
-      <CounterControl label="Decrement" Clicked={props.onDecrementCounter} />
-      <CounterControl label="Add 5" Clicked={props.onAddCounter} />
-      <CounterControl label="Substract 5" Clicked={props.onSubtractCounter} />
-      <hr />
-      <button onClick={props.onStoreResult}>Store result</button>
-      <ul>
-        {props.res.map(val => (
-          <li onClick={() => props.onDeleteResult(val.id)} key={val.id}>
-            {val.value}
-          </li>
-        ))}
-      </ul>
+      <div style={{ overflow: "hidden" }}>
+        <CounterOutput value={props.ctr} />
+        <CounterControl label="Increment" Clicked={props.onIncrementCounter} />
+        <CounterControl label="Decrement" Clicked={props.onDecrementCounter} />
+        <CounterControl label="Add 5" Clicked={props.onAddCounter} />
+        <CounterControl label="Substract 5" Clicked={props.onSubtractCounter} />
+      </div>
+      <div className="store_btn">
+        <button onClick={props.onStoreResult}>Store result</button>
+      </div>
+
+      <div className="counter_store">
+        <ul>
+          {props.res.map(val => (
+            <li onClick={() => props.onDeleteResult(val.id)} key={val.id}>
+              {val.value}
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }

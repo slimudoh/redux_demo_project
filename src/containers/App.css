@@ -7,7 +7,56 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: center;
+}
+
+.container__divs {
+  width: 50%;
+  border: 5px solid #ccc;
+  height: 500px;
+  overflow: auto;
+  padding: 20px 10px;
+}
+
+.counter_output {
+  width: 80%;
+  border: 1px solid red;
+  padding: 20px;
+  margin: 0 auto 10px auto;
+  text-align: center;
+}
+
+.counter_btns {
+  border: 1px solid red;
+  width: 25%;
+  float: left;
+  text-align: center;
+  margin: 10px;
+  padding: 20px 0;
+  cursor: pointer;
+}
+
+.store_btn {
+  padding: 20px 0;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+}
+
+.counter_store {
+  border: 1px solid red;
 }

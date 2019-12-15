@@ -1,3 +1,5 @@
+import axios from "axios";
+
 export const INCREMENT = "INCREMENT";
 export const DECREMENT = "DECREMENT";
 export const ADD = "ADD";
@@ -36,9 +38,22 @@ export const store_result = () => {
   return (dispatch, getState) => {
     const getOldState = getState().counter; //get the old state for use
     console.log(getOldState);
-    setTimeout(() => {
-      dispatch(save_result());
-    }, 2000);
+
+    new Promise((resolve, reject) => {
+      axios
+        .get("https://jsonplaceholder.typicode.com/todos")
+        .then(resp => {
+          const data = resp.data;
+          console.log(data);
+          dispatch(save_result());
+
+          resolve(resp);
+        })
+        .catch(err => {
+          console.log(JSON.stringify(err));
+          reject(err);
+        });
+    });
   };
 };
 
